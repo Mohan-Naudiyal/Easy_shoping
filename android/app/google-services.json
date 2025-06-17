@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "257523151411",
+    "project_id": "easy-shoping-d9025",
+    "storage_bucket": "easy-shoping-d9025.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257523151411:android:8224121e1bd39f6883a946",
+        "android_client_info": {
+          "package_name": "com.example.e_mart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257523151411-3d7m9lc57b87raj6p5vno8bja970r9bt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.e_mart",
+            "certificate_hash": "b9354860082d119310148cb1905a02e2722962d8"
+          }
+        },
+        {
+          "client_id": "257523151411-qg78tdia47aq40t2dtj1lpq9u86lmvdv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfQmG2upi9zd1Do94Wzbj131VdDkGk0fg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257523151411-qg78tdia47aq40t2dtj1lpq9u86lmvdv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257523151411:android:55d1eebd5c2484aa83a946",
+        "android_client_info": {
+          "package_name": "com.example.esay_shoping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257523151411-qg78tdia47aq40t2dtj1lpq9u86lmvdv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfQmG2upi9zd1Do94Wzbj131VdDkGk0fg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257523151411-qg78tdia47aq40t2dtj1lpq9u86lmvdv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
