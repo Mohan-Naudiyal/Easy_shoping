@@ -16,16 +16,29 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
 
   final GoogleAuthService _authService = GoogleAuthService() ;
-
+  bool _Loading = false ;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Maohan Naudiyal"),
+      body: Stack(
+        children: [
+          Center(
+              child: Text("Maohan Naudiyal"),) ,
+          if (_Loading)
+            Center(
+              child: CircularProgressIndicator(),
+            ),
+            ]
       ),
       floatingActionButton: FloatingActionButton(onPressed: ()async{
+        setState(() {
+          _Loading = true ;
+        });
        await _authService.signOutFromGoogle() ;
         Get.offAll(() => MainScreen()) ;
+        setState(() {
+          _Loading = false ;
+        });
       } , child: Icon(Icons.exit_to_app_outlined), ),
     );
   }
