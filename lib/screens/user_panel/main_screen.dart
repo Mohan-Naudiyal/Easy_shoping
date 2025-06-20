@@ -24,9 +24,7 @@ class _MainScreenState extends State<MainScreen> {
     try {
       final UserCredential? userCredential = await _authService.signInWithGoogle();
       if (userCredential != null) {
-        // Navigate to home screen or do something with the user
-        print('User signed in: ${userCredential.user}');
-        // print('Email: ${userCredential.email}');
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign in with Google Successful"))) ;
       }
     } finally {
       setState(() => _isLoading = false);

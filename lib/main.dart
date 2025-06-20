@@ -1,3 +1,4 @@
+import 'package:esay_shoping/screens/auth_ui/forget-password.dart';
 import 'package:esay_shoping/screens/auth_ui/signup.dart';
 import 'package:esay_shoping/screens/auth_ui/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Signup(),
+      home: SplashScreen(),
     );
   }
 }

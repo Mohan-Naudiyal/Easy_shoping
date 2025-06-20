@@ -1,6 +1,7 @@
 // lib/services/google_auth_service.dart
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:esay_shoping/controllers/token_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -15,6 +16,8 @@ class GoogleAuthService {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   Future<UserCredential?> signInWithGoogle() async {
+
+    final GetDeviceTokenController tokenController = Get.put(GetDeviceTokenController());
     try {
       // Trigger the authentication flow
       final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
@@ -43,7 +46,7 @@ class GoogleAuthService {
           email: user.email.toString(),
           phone: user.phoneNumber.toString(),
           userImg: '',
-          userDeviceToken: "",
+          userDeviceToken: tokenController.deviceToken.toString(),
           country: '',
           userAddress: '',
           street: '',

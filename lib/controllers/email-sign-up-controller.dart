@@ -1,38 +1,15 @@
+import 'package:esay_shoping/controllers/token_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../models/user-model.dart';
 
-class AuthService {
+class RegistrationService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  // ========== 1. Login Method (Returns UserModel) ==========
-  Future<UserModel> loginUser(String email, String password) async {
-    try {
-      // 1. Authenticate with Firebase Auth
-      UserCredential credential = await _auth.signInWithEmailAndPassword(
-        email: email.trim(),
-        password: password.trim(),
-      );
-
-      // 2. Fetch user data from Firestore
-      DocumentSnapshot userDoc =
-          await _firestore.collection('users').doc(credential.user!.uid).get();
-
-      if (!userDoc.exists) throw Exception('User data not found');
-
-      // 3. Return UserModel
-      return UserModel.fromMap(userDoc.data() as Map<String, dynamic>);
-    } on FirebaseAuthException catch (e) {
-      // Handle specific auth errors
-      String errorMessage = 'Login failed. Please try again.';
-      if (e.code == 'user-not-found') errorMessage = 'Email not registered.';
-      if (e.code == 'wrong-password') errorMessage = 'Incorrect password.';
-      throw Exception(errorMessage);
-    } catch (e) {
-      throw Exception('Error: ${e.toString()}');
-    }
-  }
+  final GetDeviceTokenController deviceTokenController = Get.put(GetDeviceTokenController()) ;
 
   // ========== 2. Registration Method ==========
   Future<UserModel> registerUser({
@@ -57,6 +34,10 @@ class AuthService {
         password: password.trim(),
       );
 
+      if (credential.user != null) {
+        await credential.user!.sendEmailVerification();
+      }
+
       // 2. Create user data model
       UserModel newUser = UserModel(
         uId: credential.user!.uid,
@@ -64,7 +45,7 @@ class AuthService {
         email: email,
         phone: phone,
         userImg: "",
-        userDeviceToken: "",
+        userDeviceToken: deviceTokenController.deviceToken.toString() ,
         country: "",
         userAddress: "",
         street: "",

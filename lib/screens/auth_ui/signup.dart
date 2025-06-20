@@ -2,7 +2,7 @@ import 'package:esay_shoping/screens/auth_ui/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import '../../controllers/email-sign-up.dart';
+import '../../controllers/email-sign-up-controller.dart';
 import '../../models/user-model.dart';
 import '../../utils/app_constants.dart';
 import 'Login.dart';
@@ -197,7 +197,7 @@ class _SignupState extends State<Signup> {
                                   _Loading = true;
                                 });
                                 try {
-                                  UserModel? user = await AuthService()
+                                  UserModel? user = await RegistrationService()
                                       .registerUser(
                                         email: _emailController.text,
                                         password: _passwordController.text,
@@ -210,7 +210,7 @@ class _SignupState extends State<Signup> {
                                         isAdmin: false,
                                         isActive: true,
                                         createdOn: DateTime.now(),
-                                        city: _cityController.text,
+                                        city: _cityController.text ,
                                       );
                                   setState(() {
                                     _Loading = false;
@@ -230,9 +230,10 @@ class _SignupState extends State<Signup> {
                                   }
                                 } catch (e) {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text(e.toString())),
+                                    SnackBar(content: Text('Hlo.... ${e.toString()}')),
                                   );
                                 }
+                                Get.offAll(() => Login()) ;
                               }
                             },
                             child: Text(

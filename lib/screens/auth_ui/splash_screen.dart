@@ -2,6 +2,10 @@ import 'dart:async';
 
 
 
+import 'package:esay_shoping/controllers/get-user-data-Controller.dart';
+import 'package:esay_shoping/screens/auth_ui/welcome_screen.dart';
+import 'package:esay_shoping/screens/user_panel/admin_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -20,6 +24,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  User? user = FirebaseAuth.instance.currentUser ;
 
   @override
 
@@ -27,8 +32,23 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     Timer(Duration(seconds: 5), (){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreen() )) ;
+      loggdIn(context) ;
     }) ;
+  }
+
+  Future<void>loggdIn(BuildContext context) async {
+
+    if( user != null){
+      final GetUserDataController getUserDataController = Get.put(GetUserDataController()) ;
+      var userData = await getUserDataController.getUserData(user!.uid);
+      if(userData['isAdmin'] == "true"){
+        Get.to(() => AdminScreen()) ;
+      }else{
+        Get.to(() => WelcomeScreen()) ;
+      }
+    }else{
+      Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreen())) ;
+    }
   }
 
   @override
