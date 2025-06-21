@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../models/user-model.dart';
-import '../screens/auth_ui/welcome_screen.dart';
-import '../screens/user_panel/main_screen.dart';
+import '../screens/user_panel/user_screen.dart';
+import '../screens/auth_ui/main_screen.dart';
 
 class GoogleAuthService {
 

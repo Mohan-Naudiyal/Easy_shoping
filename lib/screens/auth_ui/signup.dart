@@ -1,4 +1,4 @@
-import 'package:esay_shoping/screens/auth_ui/welcome_screen.dart';
+import 'package:esay_shoping/screens/user_panel/user_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';

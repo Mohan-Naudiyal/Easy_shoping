@@ -1,7 +1,7 @@
 import 'package:esay_shoping/controllers/email_Login.dart';
 import 'package:esay_shoping/screens/auth_ui/Login.dart';
 import 'package:esay_shoping/screens/auth_ui/signup.dart';
-import 'package:esay_shoping/screens/auth_ui/welcome_screen.dart';
+import 'package:esay_shoping/screens/user_panel/user_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter/material.dart';

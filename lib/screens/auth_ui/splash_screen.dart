@@ -3,14 +3,14 @@ import 'dart:async';
 
 
 import 'package:esay_shoping/controllers/get-user-data-Controller.dart';
-import 'package:esay_shoping/screens/auth_ui/welcome_screen.dart';
+import 'package:esay_shoping/screens/user_panel/user_screen.dart';
 import 'package:esay_shoping/screens/user_panel/admin_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../utils/app_constants.dart';
-import '../user_panel/main_screen.dart';
+import 'main_screen.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

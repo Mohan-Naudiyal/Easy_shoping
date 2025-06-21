@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../controllers/google-sign-in-controller.dart';
 import '../../utils/app_constants.dart';
+import '../../widgets/drawer_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
