@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 class GetUserDataController extends GetxController {
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+   FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<Map<String, dynamic>> getUserData(String uId) async {
     try {

@@ -62,7 +62,6 @@ class _SplashScreenState extends State<SplashScreen> {
             Container(
               // width: Get.width ,
               margin: EdgeInsets.only(top: 300),
-
               alignment: Alignment.center,
               child: Lottie.asset(
                 "assets/images/splash.json",

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:esay_shoping/utils/app_constants.dart';
+import 'package:esay_shoping/widgets/category_screen.dart';
 import 'package:esay_shoping/widgets/caterory_widget.dart';
 import 'package:esay_shoping/widgets/drawer_widget.dart';
 import 'package:esay_shoping/widgets/heading_widget.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/google-sign-in-controller.dart';
 import '../../widgets/banner-widget.dart';
+import '../../widgets/product_widget.dart';
 import '../auth_ui/main_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -34,9 +36,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           SizedBox(height: 10,),
 
           bannerWidget ,
-          HeadingWidget(Heading: "Categories", subHeading: "According to your budget" , onTap: () {},) ,
+          HeadingWidget(Heading: "Categories", subHeading: "According to your budget" , onTap: () {
+            Get.to(()=> CategoryScreen());
+          },) ,
           CateroryWidget(),
-          HeadingWidget(Heading: "Categories", subHeading: "According to your budget" , onTap: () {},) ,
+          HeadingWidget(Heading: "Flash Sale", subHeading: "According to your budget" , onTap: () {},) ,
+          ProductWedget(),
+          HeadingWidget(Heading: "Flash Sale", subHeading: "According to your budget" , onTap: () {},) ,
 
         ])),
       ),
